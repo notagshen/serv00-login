@@ -190,5 +190,5 @@ def send_telegram_message(message):
 
 
 if __name__ == '__main__':
-    # asyncio.run(main())
-    send_wecom_bot_message("1")
+    asyncio.run(main())
+    # send_wecom_bot_message("1")
