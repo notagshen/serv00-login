@@ -123,13 +123,9 @@ async def send_message(message):
 
 
 def send_wecom_bot_message(message):
-    skey = WECOM_BOT_TOKEN
+    WECOM_BOT_TOKEN = "10e16148-1766-4d2b-a817-d380da0c65d1"
     wx_headers = {
         'Content-Type': 'application/json',
-    }
-
-    params = {
-        'key': f'{skey}',
     }
 
     json_data = {
@@ -140,14 +136,14 @@ def send_wecom_bot_message(message):
     }
 
     try:
-        response = requests.post('https://qyapi.weixin.qq.com/cgi-bin/webhook/send', params=params, headers=wx_headers,
+        response = requests.post(f'https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={WECOM_BOT_TOKEN}', headers=wx_headers,
                              json=json_data)
         if response.status_code != 200:
             print(f"发送消息到WeCom_bot失败: {response.text}")
     except Exception as e:
         print(f"发送消息到WeCom_bot时出错: {e}")
-        
-        
+
+
 def send_push_plus_message(message):
     url = "http://www.pushplus.plus/send"
     payload = {
@@ -194,4 +190,5 @@ def send_telegram_message(message):
 
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    # asyncio.run(main())
+    send_wecom_bot_message("1")
