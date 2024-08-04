@@ -1,4 +1,4 @@
-## serv00与ct8自动化批量保号，每3天自动登录一次面板，支持将运行结果发送到Telegram、PushPlus。
+## serv00与ct8自动化批量保号，每3天自动登录一次面板，支持将运行结果发送到Telegram、企业微信机器人、PushPlus。
 
 ## 视频教程看这里
 [免费白嫖10年VPS服务器serv00 并且一键部署自己的专属自建Vless节点 ｜小白教程｜自动化批量保号](https://youtu.be/QnlzpvDl_mo)
@@ -65,6 +65,18 @@
 - **TELEGRAM_CHAT_ID**
     - 示例值: `1234567890`
     - 获取方法: 发送一条消息给你的 Bot，然后访问 `https://api.telegram.org/bot<your_bot_token>/getUpdates` 获取 Chat ID。
+ 
+- **PUSH_PLUS_TOKEN**
+
+    - 作用：支持将消息推送到pushplus微信公众号。
+    - 示例值：`dad8515EFghijklmnopQRSTuvwxyZ444e3bb81f05`
+    - 获取方法：关注pushplus微信公众号获取。参考文档 `https://www.pushplus.plus/doc/`。
+ 
+- **WECOM_BOT_TOKEN**
+
+    - 作用：支持将消息推送到企业微信机器人。
+    - 示例值：`693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa`
+    - 获取方法：在终端某个群组添加机器人之后，创建者可以在机器人详情页看到该机器人特有的webhookurl。开发者可以按以下说明向这个地址发起HTTP POST 请求，即可实现给该群组发送消息。参考文档 `https://developer.work.weixin.qq.com/document/path/91770`。
 
 - **ACCOUNTS_JSON**
     - 示例值:
@@ -77,11 +89,7 @@
       ```
     - 获取方法: 创建一个包含serv00账号信息的 JSON 文件，并将其内容添加到 GitHub 仓库的 Secrets 中。
 
-- **PUSH_PLUS_TOKEN**
 
-    - 作用：支持将消息推送到pushplus微信公众号。
-    - 示例值：`dad8515EFghijklmnopQRSTuvwxyZ444e3bb81f05`
-    - 获取方法：关注pushplus微信公众号获取。参考文档 `https://www.pushplus.plus/doc/`。
 
 
 ### 注意事项
