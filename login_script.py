@@ -8,10 +8,11 @@ import aiofiles
 import requests
 from pyppeteer import launch
 
-# 从环境变量中获取 Telegram Bot Token、 Chat ID、PUSH_PLUS_TOKEN。
+# 从环境变量中获取 Telegram Bot Token、 Chat ID、PUSH_PLUS_TOKEN、WECOM_BOT_TOKEN。
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
 TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 PUSH_PLUS_TOKEN = os.getenv('PUSH_PLUS_TOKEN')
+WECOM_BOT_TOKEN = os.getenv('WECOM_BOT_TOKEN')
 
 
 def format_to_iso(date):
@@ -117,8 +118,36 @@ async def send_message(message):
         send_telegram_message(message)
     if PUSH_PLUS_TOKEN:
         send_push_plus_message(message)
+    if WECOM_BOT_TOKEN:
+        send_wecom_bot_message(message)
 
 
+def send_wecom_bot_message(message):
+    skey = WECOM_BOT_TOKEN
+    wx_headers = {
+        'Content-Type': 'application/json',
+    }
+
+    params = {
+        'key': f'{skey}',
+    }
+
+    json_data = {
+        'msgtype': 'text',
+        'text': {
+            'content': f'{message}',
+        },
+    }
+
+    try:
+        response = requests.post('https://qyapi.weixin.qq.com/cgi-bin/webhook/send', params=params, headers=wx_headers,
+                             json=json_data)
+        if response.status_code != 200:
+            print(f"发送消息到WeCom_bot失败: {response.text}")
+    except Exception as e:
+        print(f"发送消息到WeCom_bot时出错: {e}")
+        
+        
 def send_push_plus_message(message):
     url = "http://www.pushplus.plus/send"
     payload = {
