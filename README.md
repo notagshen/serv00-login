@@ -66,17 +66,19 @@
     - 示例值: `1234567890`
     - 获取方法: 发送一条消息给你的 Bot，然后访问 `https://api.telegram.org/bot<your_bot_token>/getUpdates` 获取 Chat ID。
  
+- **WECOM_BOT_TOKEN**
+
+    - 作用：支持将消息推送到企业微信机器人。
+    - 示例值：`693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa`
+    - 获取方法：在终端某个群组添加机器人之后，创建者可以在机器人详情页看到该机器人特有的webhookurl。开发者可以按以下说明向这个地址发起HTTP POST 请求，即可实现给该群组发送消息。参考文档 `https://developer.work.weixin.qq.com/document/path/91770`。
+ 
 - **PUSH_PLUS_TOKEN**
 
     - 作用：支持将消息推送到pushplus微信公众号。
     - 示例值：`dad8515EFghijklmnopQRSTuvwxyZ444e3bb81f05`
     - 获取方法：关注pushplus微信公众号获取。参考文档 `https://www.pushplus.plus/doc/`。
  
-- **WECOM_BOT_TOKEN**
 
-    - 作用：支持将消息推送到企业微信机器人。
-    - 示例值：`693a91f6-7xxx-4bc4-97a0-0ec2sifa5aaa`
-    - 获取方法：在终端某个群组添加机器人之后，创建者可以在机器人详情页看到该机器人特有的webhookurl。开发者可以按以下说明向这个地址发起HTTP POST 请求，即可实现给该群组发送消息。参考文档 `https://developer.work.weixin.qq.com/document/path/91770`。
 
 - **ACCOUNTS_JSON**
     - 示例值:
