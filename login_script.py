@@ -123,7 +123,6 @@ async def send_message(message):
 
 
 def send_wecom_bot_message(message):
-    WECOM_BOT_TOKEN = "10e16148-1766-4d2b-a817-d380da0c65d1"
     wx_headers = {
         'Content-Type': 'application/json',
     }
@@ -191,4 +190,3 @@ def send_telegram_message(message):
 
 if __name__ == '__main__':
     asyncio.run(main())
-    # send_wecom_bot_message("1")
